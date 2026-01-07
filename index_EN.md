@@ -2,15 +2,17 @@
 [English Version](index_EN.md) | [GitHub](https://github.com/stakiran/multiple_launcher/)
 
 ## Summary
-- Create an .ahk file that lists multiple files and URLs to open
+- Create an ahk file that lists multiple files and URLs to open
     - This is called a Multiple Launcher
-- If you prepare a Multiple Launcher in advance, you can open everything at once just by launching it when needed
+- If you have a Multiple Launcher ready, you can open everything at once just by running it when you need it
 
 ## Requirements
 - Windows
-- AutoHotkey
+- A scripting system capable of opening multiple files
+    - AutoHotkey
+    - Batch files
 
-## Sample
+## Sample 1
 Save the following as L1.ahk.
 
 ```ahk
@@ -29,19 +31,35 @@ run,"C:\Program Files (x86)\Mozilla Thunderbird\thunderbird.exe"
 ;...
 ```
 
-When you run L1.ahk, all listed files and URLs will be opened.
+When you run L1.ahk, all the files and URLs listed in it will be opened.
 
-## Typical times to use it
-- Things to use at startup
+## Sample 2
+Save as a batch file xxx.bat.
+
+```bat
+@echo off
+
+echo chrome...
+start "" "C:\Program Files\Google\Chrome\Application\chrome.exe"
+
+echo text files...
+start "" d:\dropbox\text\diary.txt
+start "" d:\dropbox\tasks\today.md
+```
+
+The key is to launch using `start "" "CommandLine"`.
+
+## Common Use Cases
+- Things to open at startup
 - Things you want to see first thing in the morning
-- Things you want to see when starting work
-- Things you want to see when starting Project X
+- Things you want to open when starting work
+- Things you want to open when starting Project X
 
-## Tips
-- Because it's called a "launcher," you might imagine "programs," but it can be used for other things too
+## TIPS
+- Since it's called a launcher, you might imagine a "program," but it can be other things too
     - Text files containing notes or templates
-    - Pages for some SaaS
-- On Windows, associated files can be opened by specifying just the file path
+    - Pages from some SaaS
+- On Windows, files associated with an application can be opened just by specifying the file path
     - This approach works well for text files and URLs
-- For items you no longer use, set them aside by commenting them out with `;`
-    - You may revisit or reuse them later, so it often feels better to keep them as comments rather than deleting them outright
+- Comment out things you no longer use with `;` to keep them around
+    - You may use them again when revisiting or reusing, so it feels better to keep them as comments rather than deleting them

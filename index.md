@@ -8,9 +8,11 @@
 
 ## 要件
 - Windows
-- AutoHotkey
+- 複数ファイルを開くポテンシャルを持つスクリプトシステム
+    - AutoHotkey
+    - バッチファイル
 
-## サンプル
+## サンプル1
 L1.ahk として以下を保存。
 
 ```ahk
@@ -30,6 +32,22 @@ run,"C:\Program Files (x86)\Mozilla Thunderbird\thunderbird.exe"
 ```
 
 L1.ahk を実行すると、記述されたファイルや URL がすべて開かれる。
+
+## サンプル2
+バッチファイル xxx.bat として保存。
+
+```bat
+@echo off
+
+echo chrome...
+start "" "C:\Program Files\Google\Chrome\Application\chrome.exe"
+
+echo text files...
+start "" d:\dropbox\text\diary.txt
+start "" d:\dropbox\tasks\today.md
+```
+
+ポイントは `start "" "CommandLine"` により起動すること。
 
 ## 主なタイミング
 - 起動時に使うもの
